@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     private List<Item> itemList;
-   
+
     #region ToolTip
     private ToolTip toolTip;
     private bool isToolTipShow = false;
@@ -68,7 +68,7 @@ public class InventoryManager : MonoBehaviour
     {
         toolTip = GameObject.FindObjectOfType<ToolTip>();
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-       
+
         // REMOVED: pickedItem is no longer used
         // pickedItem = GameObject.Find("PickedItem").GetComponent<ItemUI>();
         // pickedItem.Hide();
@@ -174,7 +174,7 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
-   
+
     public void ShowToolTip(string content)
     {// 【新增】在设置位置前，先调整 Pivot
         toolTip.AdjustPivot(Input.mousePosition);

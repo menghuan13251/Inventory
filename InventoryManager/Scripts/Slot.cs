@@ -81,14 +81,14 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IB
         if (transform.childCount > 0 && draggedItem == null) // MODIFIED: Only show tooltip if not dragging
         {
             //string toolTipText = transform.GetChild(0).GetComponent<ItemUI>().Item.GetToolTipText();
-           // InventoryManager.Instance.ShowToolTip(toolTipText);
+            // InventoryManager.Instance.ShowToolTip(toolTipText);
         }
 
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        
+
     }
     public virtual void OnPointerClick(PointerEventData eventData)
     {
@@ -124,7 +124,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IB
             canvasGroup.blocksRaycasts = false;
 
             InventoryManager.Instance.HideToolTip(); // Hide tooltip while dragging
-          
+
         }
     }
 

@@ -5,7 +5,8 @@ using System;
 using System.Text;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
     protected Slot[] slotList;
 
@@ -20,7 +21,8 @@ public class Inventory : MonoBehaviour {
     public InputField searchInput;  // 将UI中的 InputField 拖到这里
     private Item.ItemType currentFilterType = Item.ItemType.All; // 新增一个"All"类型到你的枚举中
                                                                  // Use this for initialization
-    public virtual void Start () {
+    public virtual void Start()
+    {
         slotList = GetComponentsInChildren<Slot>();
         canvasGroup = GetComponent<CanvasGroup>();
         Hide();
@@ -43,7 +45,7 @@ public class Inventory : MonoBehaviour {
     }
 
     // 【新增】生成分类页签
-    public  void GenerateTabs()
+    public void GenerateTabs()
     {
         if (tabsContainer == null || tabPrefab == null) return;
 
@@ -83,7 +85,7 @@ public class Inventory : MonoBehaviour {
     }
 
     // 【新增】应用所有过滤器（分类和搜索）
-    public  void ApplyFilters()
+    public void ApplyFilters()
     {
         string searchText = (searchInput != null) ? searchInput.text.ToLower() : "";
 
@@ -134,7 +136,7 @@ public class Inventory : MonoBehaviour {
     public bool StoreItem(int id)
     {
         Item item = InventoryManager.Instance.GetItemById(id);
-      
+
         return StoreItem(item);
     }
     public bool StoreItem(Item item)
@@ -215,7 +217,7 @@ public class Inventory : MonoBehaviour {
     {
         foreach (Slot slot in slotList)
         {
-            if (slot.transform.childCount >= 1 && slot.GetItemId() == item.ID &&slot.IsFilled()==false )
+            if (slot.transform.childCount >= 1 && slot.GetItemId() == item.ID && slot.IsFilled() == false)
             {
                 return slot;
             }
@@ -254,7 +256,7 @@ public class Inventory : MonoBehaviour {
             if (slot.transform.childCount > 0)
             {
                 ItemUI itemUI = slot.transform.GetChild(0).GetComponent<ItemUI>();
-                sb.Append(itemUI.Item.ID + ","+itemUI.Amount+"-");
+                sb.Append(itemUI.Item.ID + "," + itemUI.Amount + "-");
             }
             else
             {
@@ -269,7 +271,7 @@ public class Inventory : MonoBehaviour {
         string str = PlayerPrefs.GetString(this.gameObject.name);
         //print(str);
         string[] itemArray = str.Split('-');
-        for (int i = 0; i < itemArray.Length-1; i++)
+        for (int i = 0; i < itemArray.Length - 1; i++)
         {
             string itemStr = itemArray[i];
             if (itemStr != "0")

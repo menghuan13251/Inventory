@@ -2,13 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class ToolTip : MonoBehaviour {
+public class ToolTip : MonoBehaviour
+{
 
     private Text toolTipText;
     private Text contentText;
     private CanvasGroup canvasGroup;
 
-    private float targetAlpha = 0 ;
+    private float targetAlpha = 0;
 
     public float smoothing = 1;
     private RectTransform rectTransform; // 【新增】引用自身的 RectTransform
@@ -33,7 +34,7 @@ public class ToolTip : MonoBehaviour {
     {
         if (canvasGroup.alpha != targetAlpha)
         {
-            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, targetAlpha,smoothing*Time.deltaTime);
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, targetAlpha, smoothing * Time.deltaTime);
             if (Mathf.Abs(canvasGroup.alpha - targetAlpha) < 0.01f)
             {
                 canvasGroup.alpha = targetAlpha;
@@ -55,5 +56,5 @@ public class ToolTip : MonoBehaviour {
     {
         transform.localPosition = position;
     }
-	
+
 }
